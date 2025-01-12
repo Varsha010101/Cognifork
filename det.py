@@ -8,18 +8,18 @@ class ObjectClassifier:
     def __init__(self, model_path='yolov8n.pt'):
         # Initialize the YOLO model with the specified model path
         self.model = YOLO(model_path)
-        self.model.overrides['conf'] = 0.3  # Confidence threshold
+        self.model.overrides['conf'] = 0.4  # Increased confidence threshold for better detection
         self.model.overrides['iou'] = 0.5  # IoU threshold for NMS
 
         # Class label definitions with unique colors for bounding boxes
         self.classes = {
             0: ('person', (64, 128, 128)),
             2: ('car', (0, 0, 255)),
-            3: ('motorcycle', (0, 255, 0)),
+            3: ('bike', (0, 255, 0)),
             5: ('bus', (255, 165, 0)),
             6: ('train', (128, 0, 128)),
-            7: ('truck', (255, 0, 0)),
-            8: ('forklift', (0, 255, 255))
+            7: ('truck', (255, 0, 0)),        # Blue for truck
+            8: ('forklift', (0, 255, 255))    # Yellow for forklift
         }
 
     def annotate_frame(self, frame, box, class_id):
@@ -28,14 +28,16 @@ class ObjectClassifier:
         label, color = self.classes.get(class_id, ('Unknown', (0, 255, 0)))
         confidence = box.conf[0]  # Confidence score
 
-        # Draw bounding box
-        cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
+        # Only annotate if the confidence is above the threshold
+        if confidence >= 0.4:
+            # Draw bounding box
+            cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
 
-        # Add label and confidence above the box
-        label_text = f"{label} {confidence:.2f}"
-        label_size, _ = cv2.getTextSize(label_text, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 2)
-        cv2.rectangle(frame, (x1, y1 - label_size[1] - 10), (x1 + label_size[0], y1), color, -1)
-        cv2.putText(frame, label_text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
+            # Add label and confidence above the box
+            label_text = f"{label} {confidence:.2f}"
+            label_size, _ = cv2.getTextSize(label_text, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 2)
+            cv2.rectangle(frame, (x1, y1 - label_size[1] - 10), (x1 + label_size[0], y1), color, -1)
+            cv2.putText(frame, label_text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
 
     def process_frame(self, frame):
         """Process a single frame to perform object detection and annotation."""
@@ -118,7 +120,7 @@ def main():
     classifier = ObjectClassifier()
 
     # Choose processing mode: live camera, image, or video
-    mode = "image"  # Change to "live_camera" or "video" as needed
+    mode = "live_camera"  # Change to "live_camera" or "video" as needed
 
     if mode == "live_camera":
         classifier.process_live_camera()
