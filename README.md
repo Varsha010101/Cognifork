@@ -1,4 +1,4 @@
-# Cognifork
+
 <p align="center">
  <strong>Cognifork</strong>
 </p>
