@@ -26,7 +26,7 @@
 
 <p align="center">
   <img src="./Datasets/img.png" alt="Input Image" width="45%">
-  <img src="./results/processed_image.png" alt="Processed Image" width="45%">
+  <img src="./results/processed_image.jpg" alt="Processed Image" width="45%">
 </p>
 
 ---
