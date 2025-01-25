@@ -86,7 +86,4 @@ Cognifork is licensed under the MIT License. Feel free to use, modify, and distr
 - *OpenCV* for image and video processing capabilities. 🎥
 
 ---
-<p align="center">
-<strong>Until Next Time, With 💖 from Varsha 💫</strong>
-</p>
 
