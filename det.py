@@ -185,7 +185,7 @@ def process_all_images(input_folder, output_folder):
 
 def main():
     # Choose processing mode
-    mode = "all_images"  # Options: 'live_camera', 'image', 'video', 'all_images'
+    mode = "live_camera"  # Options: 'live_camera', 'image', 'video', 'all_images'
 
     detector = VehicleDetector()
 

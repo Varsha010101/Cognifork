@@ -1,7 +1,5 @@
 
-<p align="center">
- <strong>Cognifork</strong>
-</p>
+<p align="center"> <strong>Cognifork</strong></p>
 
 
 **Cognifork** is a cutting-edge vision solution designed to empower automobile companies with real-time detection capabilities. 🏭 Utilizing the powerful YOLOv8 model from Ultralytics, Cognifork is capable of detecting humans, vehicles, and forklifts with precision and speed, making it an essential tool for workplace safety and operational efficiency.
