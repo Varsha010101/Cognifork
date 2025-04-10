@@ -1,6 +1,6 @@
-
-<p align="center"> <strong>Cognifork</strong></p>
-
+<p align="center">
+ <strong>Cognifork</strong>
+</p>
 
 **Cognifork** is a cutting-edge vision solution designed to empower automobile companies with real-time detection capabilities. 🏭 Utilizing the powerful YOLOv8 model from Ultralytics, Cognifork is capable of detecting humans, vehicles, and forklifts with precision and speed, making it an essential tool for workplace safety and operational efficiency.
 
@@ -22,6 +22,15 @@
 
 ---
 
+### Demo 🖼️
+
+<p align="center">
+  <img src="./Datasets/img.png" alt="Input Image" width="45%">
+  <img src="./results/processed_image.jpg" alt="Processed Image" width="45%">
+</p>
+
+---
+
 ### Use Cases 🏭
 
 - **Workplace Safety**: Prevent accidents by detecting forklifts and humans in shared spaces. 🛡️
@@ -40,13 +49,17 @@
 1. Clone the repository:
    ```bash
    git clone https://github.com/Varsha010101/Cognifork.git
+
 2. Navigate to the project directory:
     ```bash 
     cd Cognifork 
 3. Install dependencies:
     ```bash 
     pip install ultralytics
-    pip install ultralyticsplus 
+    pip install ultralyticsplus
+    pip install opencv-python
+    pip install opencv-contrib-python
+
 4. Run the application:
     ```bash
     python det.py
@@ -73,7 +86,4 @@ Cognifork is licensed under the MIT License. Feel free to use, modify, and distr
 - *OpenCV* for image and video processing capabilities. 🎥
 
 ---
-<p align="center">
-<strong>Until Next Time, With 💖 from Varsha 💫</strong>
-</p>
 
